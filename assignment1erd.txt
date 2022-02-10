@@ -1,0 +1,36 @@
+[Shops](sid*, sname);
+
+[Products](pid*, pname, description, price, qty);
+
+[Manufacturer](mid*, mname, country);
+
+[Category](catId*, catName, parentCid);
+
+[Employees](eid*, ename, monthlySalary);
+
+[Users] (uid*, uname, uaddress);
+
+[Comment] (commentId*, uid, pid, commentText, revisionDate);
+
+[Coupons](couponId*, cid*, validityPeriod, reward, order);
+
+<isCategoryOf> ();
+
+<Sells>();
+
+<Manufactured> ();
+
+<Orders> (orderId*, uid, sid, pid, shippingCost, shippingAddress, totalCost, status, estimatedDeliveryDate, couponId);
+
+<Refunds> (pid*, sid*, eid*, qty, requestDate, acceptDate, rejectDate, rejectReason); 
+
+<Rate> (rating, uid*, pid*, revisionDate);
+
+
+<Reply> (replyCommentId*, repliedCommentId*);
+
+<applyCoupon> (couponId*, orderId);
+
+
+<Complains> (complaintId*, pid, sid, commentId, status);
+  
