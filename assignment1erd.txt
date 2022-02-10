@@ -10,7 +10,6 @@
 
 [Users] (uid*, uname, uaddress);
 
-[Comment] (commentId*, uid, pid, commentText, revisionDate);
 
 [Coupons](couponId*, cid*, validityPeriod, reward, order);
 
@@ -20,11 +19,15 @@
 
 <Manufactured> ();
 
-<Orders> (orderId*, uid, sid, pid, shippingCost, shippingAddress, totalCost, status, estimatedDeliveryDate, couponId);
 
-<Refunds> (pid*, sid*, eid*, qty, requestDate, acceptDate, rejectDate, rejectReason); 
+[<Orders>] (orderId*, shippingCost, shippingAddress, totalCost, status, estimatedDeliveryDate, couponId);
 
-<Rate> (rating, uid*, pid*, revisionDate);
+<Refunds> (qty, requestDate, acceptDate, rejectDate, rejectReason); 
+
+<Comments> (commentId*, commentText, revisionDate);
+
+
+<Rate> (rating, revisionDate);
 
 
 <Reply> (replyCommentId*, repliedCommentId*);
@@ -33,4 +36,39 @@
 
 
 <Complains> (complaintId*, pid, sid, commentId, status);
-  
+
+
+
+
+Shops --- Sells;
+
+Products --- Sells;
+
+Manufacturer --- Manufactured;
+
+Products --- Manufactured;
+
+Category --- isCategoryOf;
+Category --- isCategoryOf;
+Products --- isCategoryOf;
+
+Users --- Orders;
+Shops --- Orders;
+
+Orders --- Refunds;
+
+Employees --- Refunds;
+
+Orders --- Rate;
+Orders --- Comments;
+Users --- Rate;
+Users --- Comments;
+
+Coupons --- applyCoupon;
+Orders --- applyCoupon;
+
+Orders --- Complains;
+
+Users --- Complains;
+
+

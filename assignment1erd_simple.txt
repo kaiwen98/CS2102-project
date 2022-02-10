@@ -1,0 +1,89 @@
+[Shops](sid*);
+
+[Products](pid*);
+
+[Manufacturer](mid*);
+
+[Category](catId*);
+
+[Employees](eid*);
+
+[Users] (uid*);
+
+[Orders] (orderId*);
+
+<Coupons> (couponId*);
+
+<isCategoryOf> ();
+
+[<Sells>] ();
+
+<Manufactured> ();
+
+<MakeOrder> ();
+
+<Hosted> ();
+
+<Refunds> (); 
+
+[Comments] (commentId*);
+
+
+<Rate> ();
+
+
+<Reply> ();
+
+
+<Complains> (complaintId*);
+
+<MakeComments> ();
+
+<ReplyTo> ();
+
+<Included> ();
+
+
+Shops --- Sells;
+
+Products --- Sells;
+
+Manufacturer --- Manufactured;
+
+Products --- Manufactured;
+
+Category --- isCategoryOf[Parent];
+Category --- isCategoryOf[Child];
+Products --- isCategoryOf;
+
+Users --- MakeOrder;
+Shops --- Hosted;
+
+Orders --- Hosted;
+
+Orders --- MakeOrder;
+
+Orders --- Refunds;
+
+Employees --- Refunds;
+
+Orders --- Rate;
+Orders --- MakeComments;
+Users --- Rate;
+Users --- MakeComments;
+Comments --- MakeComments;
+
+Orders --- Coupons;
+Users --- Coupons;
+
+Orders --- Complains;
+
+Users --- Complains;
+
+Users --- Refunds;
+
+Comments --- ReplyTo;
+Comments --- ReplyTo;
+
+Orders --- Included;
+Sells --- Included;
