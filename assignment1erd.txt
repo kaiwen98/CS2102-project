@@ -24,7 +24,7 @@
 
 <Refunds> (qty, requestDate, acceptDate, rejectDate, rejectReason); 
 
-<Comments> (commentId*, commentText, revisionDate);
+<Comments> (commentId*, commentTEXT, revisionDate);
 
 
 <Rate> (rating, revisionDate);

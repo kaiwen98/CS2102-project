@@ -41,7 +41,7 @@
 
 <ReplyTo> ();
 
-<Included> ();
+<OrderItem> ();
 
 
 Shops --- Sells;
@@ -85,5 +85,5 @@ Users --- Refunds;
 Comments --- ReplyTo;
 Comments --- ReplyTo;
 
-Orders --- Included;
-Sells --- Included;
+Orders --- OrderItem;
+Sells --- OrderItem;
